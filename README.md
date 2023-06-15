@@ -1,1 +1,1 @@
-![CI](https://github.com/GegamGrigoryan/Top_task/actions/workflows/web.yml/badge.svg)
+![CI](https://github.com/GegamGrigoryan/Top_taskactions/workflows/web.yml/badge.svg)
