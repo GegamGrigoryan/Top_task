@@ -4,12 +4,12 @@ stack: node 10  # окружение
 
 branches:
   only:
-    - main  # ветка git
+    - master  # ветка git
 
 cache: node_modules  # кеширование
 
 install:
-  - yarn install  # команда установки зависимостей
+  - npm install  # команда установки зависимостей
 
 build: off  # отключаем встроенную в appveyor систему сборки
 
