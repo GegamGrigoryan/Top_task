@@ -20,8 +20,8 @@ build_script:
 #   - npm run lint && npm test  # скрипт тестирования
 
 deploy_script:  # скрипт развёртывания
-  - git config --global user.name GegamGrigoryan
-  - git config --global user.email m-mik@ro.ru
+  - git config --global user.name "GegamGrigoryan"
+  - git config --global user.email "m-mik@ro.ru"
   - git checkout -b deploy
   - git add .
   - git commit -m "Deploy to GitHub Pages"
