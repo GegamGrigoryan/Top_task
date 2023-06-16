@@ -1,6 +1,6 @@
 image: Ubuntu1804  # образ для сборки
 
-stack: node 19  # окружение
+stack: node 19.9.0  # окружение
 
 branches:
   only:
