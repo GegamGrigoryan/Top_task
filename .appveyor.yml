@@ -11,7 +11,6 @@ cache: node_modules # кеширование
 build: off # отключаем встроенную в appveyor систему сборки
 
 build_script:
-  - nvm use --delete-prefix v19.9.0
   - yarn install
   - yarn run build # команда сборки
 
