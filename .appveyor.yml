@@ -1,18 +1,29 @@
-image: Ubuntu1804 # образ для сборки
+image: Visual Studio 2015 # образ для сборки
 
-stack: node 16 # окружение
+stack: node 19.7.0  # окружение
 
 branches:
   only:
-    - master # ветка git
+    - main  # ветка git
 
-cache: node_modules # кеширование
+cache: node_modules  # кеширование
 
 install:
-  - npm install # команда установки зависимостей
+  - yarn install  # команда установки зависимостей
 
-build: off # отключаем встроенную в appveyor систему сборки
+build: off  # отключаем встроенную в appveyor систему сборки
 
 build_script:
-  - npm run build # команда сборки
+  - yarn run build   # команда сборки
 
+# test_script:
+#   - npm run lint && npm test  # скрипт тестирования
+
+deploy_script:  # скрипт развёртывания
+  - git config --global user.name GegamGrigoryan
+  - git config --global user.email m-mik@ro.ru
+  - git checkout -b deploy
+  - git add .
+  - git commit -m "Deploy to GitHub Pages"
+  - git push --force --quiet "https://${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}@github.com" > "https://github.com/GegamGrigoryan/JP_game"
+  
