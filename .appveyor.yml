@@ -22,7 +22,6 @@ deploy_script: # скрипт развёртывания
   - git config --global user.email "m-mik@ro.ru"
   - git config --global user.name "GegamGrigoryan"
   - git checkout -b deploy
-  - git pull origin main
   - git add -A
   - git commit --allow-empty -m "."
   - git push -f origin deploy
