@@ -15,8 +15,7 @@ build_script:
   - yarn run build # команда сборки
 
 test_script:
-test:
-  off
+test: off
   #  - yarn run test && npm test # скрипт тестирования
 
 deploy_script: # скрипт развёртывания
@@ -26,4 +25,4 @@ deploy_script: # скрипт развёртывания
   - git pull origin main
   - git add -A
   - git commit --allow-empty -m "."
-  - git push --force --quiet "https://github.com/GegamGrigoryan/https://github.com/GegamGrigoryan/Top_task.git"
+  - git push -f origin deploy
