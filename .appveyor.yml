@@ -4,7 +4,7 @@ stack: node 14.17.0 # окружение
 
 branches:
   only:
-    - deploy # ветка git
+    - main # ветка git
 
 cache: node_modules # кеширование
 
@@ -22,6 +22,9 @@ deploy_script: # скрипт развёртывания
   - git config --global user.email "m-mik@ro.ru"
   - git config --global user.name "GegamGrigoryan"
   - git checkout -b deploy
+  - git branch deploy
+  - git checkout deploy
+  - git pull origin main
   - git add -A
   - git commit -m "first commit"
   - git push -f origin deploy
