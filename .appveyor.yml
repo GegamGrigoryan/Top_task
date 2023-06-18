@@ -24,5 +24,4 @@ deploy_script: # скрипт развёртывания
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
-  - git remote add origin "https://github.com/GegamGrigoryan/Top_task.git"
-  - git push -f origin deploy
+  - git push  origin deploy
