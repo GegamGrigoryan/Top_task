@@ -24,4 +24,4 @@ deploy_script: # скрипт развёртывания
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
-  - git push  origin deploy
+  - git push origin deploy
