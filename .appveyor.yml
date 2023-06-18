@@ -22,6 +22,7 @@ test:
 deploy_script: # скрипт развёртывания
   - git config --global user.email "mika_g@internet.ru"
   - git config --global user.name "GegamGrigoryan"
+  - git config --list
   - git checkout -b deploy
   - git add -A
   - git push -f origin deploy
