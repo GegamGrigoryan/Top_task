@@ -24,5 +24,4 @@ deploy_script: # скрипт развёртывания
   - git config --global user.name "GegamGrigoryan"
   - git checkout -b deploy
   - git add -A
-  - git commit --allow-empty -m "."
   - git push -f origin deploy
