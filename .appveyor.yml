@@ -1,3 +1,4 @@
+
 image: Ubuntu1804 # образ для сборки
 
 stack: node 14.17.0 # окружение
@@ -20,31 +21,10 @@ test:
   #  - yarn run test && npm test # скрипт тестирования
 
 deploy_script: # скрипт развёртывания
-environment:
-  access_token:
-    secure: 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
-
-on_success:
-  - git config --global credential.helper store
-  - ps: Set-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
   - git config --global user.email "mika_g@internet.ru"
-   - git config --global user.name "GegamGrigoryan"
-   - git checkout -b deploy
+  - git config --global user.name "GegamGrigoryan"
+  - git checkout -b deploy
+  - git add -A
   - git commit --allow-empty -m "."
-   - git push -f origin deploy
-
-  # - git config --global user.email "mika_g@internet.ru"
-  # - git config --global user.name "GegamGrigoryan"
-  # - git checkout -b deploy
-  # - git add -A
-  # - git commit --allow-empty -m "."
-  # - git -c http.extraheader="AUTHORIZATION: bearer "
-  # - git push -f origin deploy
-#   gh api \
-#   --method POST \
-#   -H "Accept: application/vnd.github+json" \
-#   -H "X-GitHub-Api-Version: 2022-11-28" \
-#   /repos/GegamGrigoryan/Top_task/deployments \
-#   -f ref='topic-branch' \
-#  -f payload='{ "deploy": "migrate" }' \
-#  -f description='Deploy request from hubot' 
+  - git -c http.extraheader="AUTHORIZATION: bearer ${SSH_AUTH_SOCK}"
+  - git push -f origin deploy
