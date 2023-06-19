@@ -22,7 +22,7 @@ test:
 deploy_script: # скрипт развёртывания
 environment:
   access_token:
-    secure: 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
+    secure: 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
 
 on_success:
   - git config --global credential.helper store
