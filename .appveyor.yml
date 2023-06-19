@@ -25,6 +25,5 @@ deploy_script: # скрипт развёртывания
   - git checkout -b deploy
   - git add -A
   # - git commit --allow-empty -m "."
-  - git -c http.extraheader="AUTHORIZATION: bearer YOUR_GITHUB_TOKEN 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"
+  - git -c http.extraheader="AUTHORIZATION: bearer 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"
   - git push -f origin deploy
-  
