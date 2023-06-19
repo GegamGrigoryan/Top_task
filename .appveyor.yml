@@ -25,5 +25,13 @@ deploy_script: # скрипт развёртывания
   - git checkout -b deploy
   - git add -A
   # - git commit --allow-empty -m "."
-  - git -c http.extraheader="AUTHORIZATION: bearer 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"
-  - git push -f origin deploy
+  # - git -c http.extraheader="AUTHORIZATION: bearer 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"
+  # - git push -f origin deploy
+  gh api \
+  --method POST \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  /repos/GegamGrigoryan/Top_task/deployments \
+  -f ref='topic-branch' \
+ -f payload='{ "deploy": "migrate" }' \
+ -f description='Deploy request from hubot' 
