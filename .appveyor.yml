@@ -20,13 +20,26 @@ test:
   #  - yarn run test && npm test # скрипт тестирования
 
 deploy_script: # скрипт развёртывания
+environment:
+  access_token:
+    secure: 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
+
+on_success:
+  - git config --global credential.helper store
+  - ps: Set-Content -Path "$HOME\.git-credentials" -Value "https://$($env:access_token):x-oauth-basic@github.com`n" -NoNewline
   - git config --global user.email "mika_g@internet.ru"
-  - git config --global user.name "GegamGrigoryan"
-  - git checkout -b deploy
-  - git add -A
+   - git config --global user.name "GegamGrigoryan"
+   - git checkout -b deploy
+  - git commit --allow-empty -m "."
+   - git push -f origin deploy
+
+  # - git config --global user.email "mika_g@internet.ru"
+  # - git config --global user.name "GegamGrigoryan"
+  # - git checkout -b deploy
+  # - git add -A
   # - git commit --allow-empty -m "."
-  - git -c http.extraheader="AUTHORIZATION: bearer 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"
-  - git push -f origin deploy
+  # - git -c http.extraheader="AUTHORIZATION: bearer "
+  # - git push -f origin deploy
 #   gh api \
 #   --method POST \
 #   -H "Accept: application/vnd.github+json" \
