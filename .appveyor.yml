@@ -25,7 +25,7 @@ deploy_script: # скрипт развёртывания
   - git checkout -b deploy
   - git add -A
   # - git commit --allow-empty -m "."
-  - git -c http.extraheader="AUTHORIZATION: bearer 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"
+  - git -c http.extraheader="AUTHORIZATION: bearer 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"
   - git push -f origin deploy
 #   gh api \
 #   --method POST \
