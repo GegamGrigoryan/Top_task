@@ -17,7 +17,6 @@ build: off # отключаем встроенную в appveyor систему 
 test: off
 
 build_script:
-  - git init
   - git config --global user.email "mika_g@internet.ru"
   - git config --global user.name "GegamGrigoryan"
   - git checkout -b deploy
