@@ -21,10 +21,6 @@ test:
   #  - yarn run test && npm test # скрипт тестирования
 
 deploy_script: # скрипт развёртывания
-provider:Environment
-name:GegamGrigoryan
-on:
-branch: deploy
   # - git config --global user.email "mika_g@internet.ru"
   # - git config --global user.name "GegamGrigoryan"
   # - git checkout -b deploy
