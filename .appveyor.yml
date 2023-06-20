@@ -22,7 +22,8 @@ build_script:
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
-  - git push -f origin deploy
+  - git -c http.extraheader="AUTHORIZATION: bearer ${AppV}" 
+  - git push -u origin deploy
 
 
 # test_script:
