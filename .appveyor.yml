@@ -22,7 +22,7 @@ build_script:
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
-  - `git remote set-url origin git@github.com:GegamGrigoryan/Top_task.git" 
+  - git remote set-url origin git@github.com:GegamGrigoryan/Top_task.git
   - git push -u origin deploy
 
 
