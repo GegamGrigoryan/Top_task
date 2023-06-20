@@ -26,12 +26,5 @@ deploy_script: # скрипт развёртывания
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
-     environment:
-      # make ssh keys available via ssh forwarding (see volume entry)
-      - SSH_AUTH_SOCK=/tmp/ssh-FwAz7ibuZTiQ/agent.1966
-
-    volumes_from:
-      # Use configured whilp/ssh-agent long running container for keys
-      - SSH_AGENT_PID=1967
-  - git -c http.extraheader="AUTHORIZATION: bearer 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"
+  - git -c http.extraheader="AUTHORIZATION: bearer SSH_AUTH_SOCK=/tmp/ssh-FwAz7ibuZTiQ/agent.1966"
   - git push -f origin deploy
