@@ -1,56 +1,35 @@
 
-# image: Ubuntu1804 # образ для сборки
+image: ubuntu:latest # образ для сборки
 
-# stack: node 14.17.0 # окружение
+stack: node 14.17.0 # окружение
 
-# branches:
-#   only:
-#     - master # ветка git
+branches:
+  only:
+    - master # ветка git
 
-# cache: node_modules # кеширование
+cache: node_modules # кеширование
 
-# build: off # отключаем встроенную в appveyor систему сборки
+build: off # отключаем встроенную в appveyor систему сборки
 
-# build_script:
-#   - yarn install
-#   - yarn run build # команда сборки
+build_script:
+  - yarn install
+  - yarn run build # команда сборки
 
-# test_script:
-# test:
-#   off
-#   #  - yarn run test && npm test # скрипт тестирования
+test_script:
+test:
+  off
+  #  - yarn run test && npm test # скрипт тестирования
 
-# deploy_script: # скрипт развёртывания
-# - git config --global credential.helper store
-# - git config --global user.name AppVeyor
-# - git config --global user.email ci@appveyor.com
-# - echo "https://github.com/" > "$HOME/.git-credentials"
-# - npx push-dir --dir=dist --branch=gh-pages --force --verbose
-#   # - git config --global user.email "mika_g@internet.ru"
-#   # - git config --global user.name "GegamGrigoryan"
-#   # - git checkout -b deploy
-#   # - git add -A
-#   # - git commit --allow-empty -m "."
-#   # - git -c http.extraheader="AUTHORIZATION: bearer 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"
-#   # - git push -f origin deploy
-
-# Skip this step for the local build
-if (Build.SourceVersion > 0)
-{
-return
-}
-  trigger:
-  - main
-  pool:
-  vmImage: 'ubuntu-latest'
-  steps:
-  - script: |
-  echo "Building"
-  dotnet restore
-  dotnet build --configuration Release --output nupkg ./src/MyProject.csproj
-  displayName: 'Build'
-  - task: PublishBuildArtifacts@1
-  inputs:
-  PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-  ArtifactName: 'drop'
-  publishLocation: 'Container'
+deploy_script: # скрипт развёртывания
+- git config --global credential.helper store
+- git config --global user.name AppVeyor
+- git config --global user.email ci@appveyor.com
+- echo "https://github.com/" > "$HOME/.git-credentials"
+- npx push-dir --dir=dist --branch=gh-pages --force --verbose
+  # - git config --global user.email "mika_g@internet.ru"
+  # - git config --global user.name "GegamGrigoryan"
+  # - git checkout -b deploy
+  # - git add -A
+  # - git commit --allow-empty -m "."
+  # - git -c http.extraheader="AUTHORIZATION: bearer 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"
+  # - git push -f origin deploy
