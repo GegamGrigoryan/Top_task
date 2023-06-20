@@ -26,8 +26,8 @@ deploy_script: # скрипт развёртывания
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
-  curl --request GET \
-   --url "https://api.github.com/octocat" \
-   --header "Authorization: Bearer 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 \
+  curl --request GET 
+   --url "https://api.github.com/octocat" 
+   --header "Authorization: Bearer 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" 
    --header "X-GitHub-Api-Version: 2022-11-28"
   - push -f origin deploy 
