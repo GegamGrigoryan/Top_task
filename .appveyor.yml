@@ -22,7 +22,7 @@ build_script:
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
-  - git -c http.extraheader="AUTHORIZATION: bearer SHHAP"
+  - git -c http.extraheader="AUTHORIZATION: bearer SSH_API"
   - git push -u origin deploy
 
 
