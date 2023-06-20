@@ -24,6 +24,7 @@ build_script:
   - git add -A
   - git commit --allow-empty -m "."
   - git push -f origin deploy
+Username for 'https://github.com': "GegamGrigoryan"
 
 
 # test_script:
