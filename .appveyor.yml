@@ -22,6 +22,7 @@ build_script:
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
+  - git remote add "https://github.com/GegamGrigoryan/Top_task.git"
   - git push -f origin deploy
 
 
