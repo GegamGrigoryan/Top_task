@@ -1,33 +1,20 @@
-
 image: Ubuntu1804 # образ для сборки
 
 stack: node 14.17.0 # окружение
 
 branches:
   only:
-    - main # ветка git
+    - master # ветка git
 
 cache: node_modules # кеширование
+
+install:
+  - npm install # команда установки зависимостей
 
 build: off # отключаем встроенную в appveyor систему сборки
 
 build_script:
-  - yarn install
-  - yarn run build # команда сборки
+  - npm run build # команда сборки
 
 test_script:
-test:
-  off
-  #  - yarn run test && npm test # скрипт тестирования
-
-deploy_script: # скрипт развёртывания
-  - git config --global user.email "mika_g@internet.ru"
-  - git config --global user.name "GegamGrigoryan"
-  - git checkout -b deploy
-  - git add -A
-  - git commit --allow-empty -m "."
-  curl --request GET 
-   --url "https://api.github.com/octocat" 
-   --header "Authorization: Bearer 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" 
-   --header "X-GitHub-Api-Version: 2022-11-28"
-  - push -f origin deploy 
+  - npm run lint && npm test # скрипт тестирования
