@@ -19,7 +19,8 @@ test: off
 build_script:
   - git config --global user.email "mika_g@internet.ru"
   - git config --global user.name "GegamGrigoryan"
-  - git checkout -b deploy
+  - git remote set-url git@github.com:GegamGrigoryan/Top_task.git
+  - git checkout -b deporigin git@github.com:username/repo.gitloy
   - git add -A
   - git commit --allow-empty -m "."
   - git remote -v
