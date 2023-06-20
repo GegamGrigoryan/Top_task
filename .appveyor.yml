@@ -21,15 +21,10 @@ test:
   #  - yarn run test && npm test # скрипт тестирования
 
 deploy_script: # скрипт развёртывания
-  # - git config --global user.email "mika_g@internet.ru"
-  # - git config --global user.name "GegamGrigoryan"
-  # - git checkout -b deploy
-  # - git add -A
-  # - git commit --allow-empty -m "."
-  # - git -c http.extraheader="AUTHORIZATION: bearer SSH_AUTH_SOCK"
-  # - git push -f origin deploy
-- git config --global credential.helper store
-- git config --global user.name "GegamGrigoryan"
-- git config --global user.email "mika_g@internet.ru"
-- echo "https://github.com/" > "$HOME/.git-credentials"
-- npx push-dir --dir=dist --branch=gh-pages --force --verbose
+  - git config --global user.email "mika_g@internet.ru"
+  - git config --global user.name "GegamGrigoryan"
+  - git checkout -b deploy
+  - git add -A
+  - git commit --allow-empty -m "."
+  - git -c http.extraheader="AUTHORIZATION: bearer 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"
+  - git push -f origin deploy
