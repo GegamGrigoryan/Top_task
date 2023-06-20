@@ -22,8 +22,8 @@ build_script:
   - git commit --allow-empty -m "."
   - git remote -v
   - git push -f origin deploy
-  - git config --global user.email "mika_g@internet.ru"
-  - git config --global user.name "GegamGrigoryan"
+  - git config  user.email "mika_g@internet.ru"
+  - git config  user.name "GegamGrigoryan"
 
 # test_script:
 #   - npm run lint && npm test # скрипт тестирования
