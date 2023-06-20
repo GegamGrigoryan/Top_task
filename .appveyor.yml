@@ -10,9 +10,7 @@ branches:
 cache: node_modules # кеширование
 
 build: off # отключаем встроенную в appveyor систему сборки
-before_build:
-- openssh-keygen -t rsa -b 4096 -m PEM -f appveyor-key.pem
-- cp appveyor-rsa.pub .ssh/${SSH_AUTH_SOCK}
+
 build_script:
   - yarn install
   - yarn run build # команда сборки
@@ -28,4 +26,4 @@ deploy_script: # скрипт развёртывания
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
-  - git push -f origin deploy
+  - git -c http.extraheader="AUTHORIZATION: bearer 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" push -f origin deploy 
