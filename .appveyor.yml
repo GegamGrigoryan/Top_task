@@ -19,7 +19,6 @@ test: off
 build_script:
   - git config --global user.email "mika_g@internet.ru"
   - git config --global user.name "GegamGrigoryan"
-  - git remote add origin "https://github.com/GegamGrigoryan/Top_task.git"
   - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
