@@ -12,7 +12,7 @@ cache: node_modules # кеширование
 build: off # отключаем встроенную в appveyor систему сборки
 before_build:
 - openssh-keygen -t rsa -b 4096 -m PEM -f appveyor-key.pem
-- cp appveyor-rsa.pub .ssh/SSH_AUTH_SOCK
+- cp appveyor-rsa.pub .ssh/ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCdZp2MRnyTlP0E94pgxd2K09dHQ6ho4vY1HBz9jWwajUrchNzj5O+VywKISZkE1ZqyDQE0UPdqGvuQa7do8Bsex7diZixKnWy0sK6w1BQJVRTvYGlYF0U8W/TimHdPXCZAxjt1PWZKLQmc5Ec6RjT0MnSWIJXqmw3xwBVSwvZHyliAKSYn41EHIE+aZxkmoluKzitGI97JCBfBp9i894avPuxI6IXsHI8EhV8t1b/GKfOxMt/r4iHn5oKR3pOwkik4GfBfV3jsRLiEB3Ts25S2XEaSsknSlKCJdlFwsR8rhR3NujPobV8LAyuXyRIwNzBu998hsz6YzRppJ5GPKFIWR3BPbYIF8S9wr1A3JjuKWg0nVsEBEEMUkO7pYT+RgltgY7TjxzJxeqozWnhHqIvDw0NuQP2E0HnrfssuwmbQdm8aTJkWicgK5lnMvNJJlpvJumcFl9EkCIJivhZ2Uv4XjUCm3eKO41m5kyj/DqzGRVzJpCVM4gp8vdFulASpGQzA7H+Rq9qVKY6Z6J8ohlIMtXY+X8yrUNgOS60jYl7f+CuX0Qu4h9lNVo+06XgkqwbAFnJGxvfJ3Ds3hwIFI1mnm+aZnGcVAEsv5T8edfwcZApXYuyHwma/SHqnJ/kMNpAViwy4eI7R9d11Ac+XtGHBD31hnj7/q5gUDPdWBesruw== mika_g@internet.ru
 build_script:
   - yarn install
   - yarn run build # команда сборки
