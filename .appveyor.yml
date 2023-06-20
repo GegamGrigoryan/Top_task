@@ -17,14 +17,13 @@ build: off # отключаем встроенную в appveyor систему 
 test: off
 
 build_script:
-  - git config --global user.email "mika_g@internet.ru"
-  - git config --global user.name "GegamGrigoryan"
-  - git remote set-url git@github.com:GegamGrigoryan/Top_task.git
-  - git checkout -b deporigin git@github.com:username/repo.gitloy
+  - git checkout -b deploy
   - git add -A
   - git commit --allow-empty -m "."
   - git remote -v
   - git push -f origin deploy
+  - git config --global user.email "mika_g@internet.ru"
+  - git config --global user.name "GegamGrigoryan"
 
 # test_script:
 #   - npm run lint && npm test # скрипт тестирования
