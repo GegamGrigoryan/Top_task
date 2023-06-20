@@ -1,30 +1,55 @@
 
-image: Ubuntu1804 # образ для сборки
+# image: Ubuntu1804 # образ для сборки
 
-stack: node 14.17.0 # окружение
+# stack: node 14.17.0 # окружение
 
-branches:
-  only:
-    - main # ветка git
+# branches:
+#   only:
+#     - master # ветка git
 
-cache: node_modules # кеширование
+# cache: node_modules # кеширование
 
-build: off # отключаем встроенную в appveyor систему сборки
+# build: off # отключаем встроенную в appveyor систему сборки
 
+# build_script:
+#   - yarn install
+#   - yarn run build # команда сборки
+
+# test_script:
+# test:
+#   off
+#   #  - yarn run test && npm test # скрипт тестирования
+
+# deploy_script: # скрипт развёртывания
+# - git config --global credential.helper store
+# - git config --global user.name AppVeyor
+# - git config --global user.email ci@appveyor.com
+# - echo "https://github.com/" > "$HOME/.git-credentials"
+# - npx push-dir --dir=dist --branch=gh-pages --force --verbose
+#   # - git config --global user.email "mika_g@internet.ru"
+#   # - git config --global user.name "GegamGrigoryan"
+#   # - git checkout -b deploy
+#   # - git add -A
+#   # - git commit --allow-empty -m "."
+#   # - git -c http.extraheader="AUTHORIZATION: bearer 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"
+#   # - git push -f origin deploy
+
+version: 1.0.0
+trigger_matrix:
+- matrix:
+- image: Visual Studio 2017
+platform: x64
+configuration: Release
+- image: Ubuntu 16.04
+platform: amd64
+- image: Alpine 3.6
+platform: arm64
 build_script:
-  - yarn install
-  - yarn run build # команда сборки
-
-test_script:
-test:
-  off
-  #  - yarn run test && npm test # скрипт тестирования
-
-deploy_script: # скрипт развёртывания
-  # - git config --global user.email "mika_g@internet.ru"
-  # - git config --global user.name "GegamGrigoryan"
-  # - git checkout -b deploy
-  # - git add -A
-  # - git commit --allow-empty -m "."
-  # - git -c http.extraheader="AUTHORIZATION: bearer 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"
-  # - git push -f origin deploy
+- ps: Install-Product node 10;
+npm install -g npm@latest;
+- ps: .
+ode_modules
+pm\bin
+pm.cmd install -g yarn;
+yarn install --ignore-engines;
+- yarn run build;
