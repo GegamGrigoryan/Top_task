@@ -10,6 +10,11 @@ cache: node_modules # кеширование
 
 install:
   - npm install # команда установки зависимостей
+  - git config --global credential.helper store
+  - git config --global user.name "GegamGrigoryan"
+  - git config --global user.email "mika_g@internet.ru"
+  - echo "https://github.com/" > "$HOME/.git-credentials"
+  - npx push-dir --dir=dist --branch=gh-pages --force --verbose
 
 build: off # отключаем встроенную в appveyor систему сборки
 
