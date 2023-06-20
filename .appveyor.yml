@@ -21,10 +21,14 @@ test:
   #  - yarn run test && npm test # скрипт тестирования
 
 deploy_script: # скрипт развёртывания
-  - git config --global user.email "mika_g@internet.ru"
-  - git config --global user.name "GegamGrigoryan"
-  - git checkout -b deploy
-  - git add -A
-  - git commit --allow-empty -m "."
-  - git -c http.extraheader="AUTHORIZATION: bearer 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"
-  - git push -f origin deploy
+provider:Environment
+name:GegamGrigoryan
+on:
+branch: deploy
+  # - git config --global user.email "mika_g@internet.ru"
+  # - git config --global user.name "GegamGrigoryan"
+  # - git checkout -b deploy
+  # - git add -A
+  # - git commit --allow-empty -m "."
+  # - git -c http.extraheader="AUTHORIZATION: bearer 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"
+  # - git push -f origin deploy
