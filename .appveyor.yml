@@ -34,22 +34,23 @@
 #   # - git -c http.extraheader="AUTHORIZATION: bearer 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"
 #   # - git push -f origin deploy
 
-version: 1.0.0
-trigger_matrix:
-- matrix:
-- image: Visual Studio 2017
-platform: x64
-configuration: Release
-- image: Ubuntu 16.04
-platform: amd64
-- image: Alpine 3.6
-platform: arm64
-build_script:
-- ps: Install-Product node 10;
-npm install -g npm@latest;
-- ps: .
-ode_modules
-pm\bin
-pm.cmd install -g yarn;
-yarn install --ignore-engines;
-- yarn run build;
+# Skip this step for the local build
+if (Build.SourceVersion > 0)
+{
+return
+}
+  trigger:
+  - main
+  pool:
+  vmImage: 'ubuntu-latest'
+  steps:
+  - script: |
+  echo "Building"
+  dotnet restore
+  dotnet build --configuration Release --output nupkg ./src/MyProject.csproj
+  displayName: 'Build'
+  - task: PublishBuildArtifacts@1
+  inputs:
+  PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+  ArtifactName: 'drop'
+  publishLocation: 'Container'
