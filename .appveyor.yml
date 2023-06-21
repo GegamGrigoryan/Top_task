@@ -16,15 +16,15 @@ install:
 build: off # отключаем встроенную в appveyor систему сборки
 test: off
 
-build_script:
-  - git config --global user.email "mika_g@internet.ru"
-  - git config --global user.name "GegamGrigoryan"
-  - git checkout -b deploy
-  - git add -A
-  - git commit --allow-empty -m "."
-  - git -c http.extraheader="AUTHORIZATION: bearer SHA256:4IG1PS0HR3WBns2PAAS9qxMnFW8LnG/TYA/7pGKE6CI"
-  - git push -u origin deploy
+# build_script:
+#   - git config --global user.email "mika_g@internet.ru"
+#   - git config --global user.name "GegamGrigoryan"
+#   - git checkout -b deploy
+#   - git add -A
+#   - git commit --allow-empty -m "."
+#   - git -c http.extraheader="AUTHORIZATION: bearer SHA256:4IG1PS0HR3WBns2PAAS9qxMnFW8LnG/TYA/7pGKE6CI"
+#   - git push -u origin deploy
 
 
-# test_script:
-#   - npm run lint && npm test # скрипт тестирования
+test_script:
+  - npm run lint && npm test # скрипт тестирования
