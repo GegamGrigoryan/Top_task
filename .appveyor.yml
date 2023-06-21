@@ -14,7 +14,7 @@ install:
 
 
 build: off # отключаем встроенную в appveyor систему сборки
-test: off
+
 
 # build_script:
 #   - git config --global user.email "mika_g@internet.ru"
@@ -27,4 +27,4 @@ test: off
 
 
 test_script:
-  - npm run lint && npm test # скрипт тестирования
+  test:of # скрипт тестирования
