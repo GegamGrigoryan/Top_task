@@ -10,9 +10,11 @@ class Tasks {
     this.inputTask.addEventListener("keyup", (event) => {
       event.preventDefault();
       let target = event.target;
+      let patern = /(?!^ +$)^.+$/;
       this.inputValue = target.value.toLowerCase();
       this.sort(this.inputValue);
-      if (event.keyCode === 13 && this.inputValue != "") {
+
+      if (event.keyCode === 13 && patern.test(this.inputValue)) {
         this.addTask(this.inputValue);
         event.target.value = "";
       }
@@ -59,9 +61,11 @@ class Tasks {
 
         if (this.pinTask.childElementCount > 1) {
           this.tasDef.remove();
-        } else {
+        }
+        if (this.pinTask.childElementCount < 1) {
           this.pinTask.appendChild(this.tasDef);
         }
+        console.log(this.pinTask.childElementCount);
       });
   }
 
